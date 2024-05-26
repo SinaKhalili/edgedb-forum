@@ -1,5 +1,5 @@
 // import { EmojiPicker } from "@/components/emoji-picker";
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import {
     Pagination,
@@ -11,6 +11,8 @@ import {
     PaginationPrevious,
 } from "@/components/ui/pagination";
 import { Separator } from "@/components/ui/separator";
+import { minidenticon } from "minidenticons";
+
 import { auth } from "@/lib/edgedb";
 import { formatRelativeDate } from "@/lib/utils";
 import { Fragment } from "react";
@@ -128,7 +130,11 @@ export default async function Post({
                     <div className="flex gap-4 p-4">
                         <div>
                             <Avatar>
-                                <AvatarFallback></AvatarFallback>
+                                <AvatarImage
+                                    src={`data:image/svg+xml;utf8,${encodeURIComponent(
+                                        minidenticon(post.author.name || "")
+                                    )}`}
+                                />
                             </Avatar>
                         </div>
                         <div className="flex flex-col gap-4 w-full">
@@ -155,6 +161,11 @@ export default async function Post({
                     <div className="flex gap-4 p-4">
                         <div>
                             <Avatar>
+                                <AvatarImage
+                                    src={`data:image/svg+xml;utf8,${encodeURIComponent(
+                                        minidenticon(comment.author.name || "")
+                                    )}`}
+                                />
                                 <AvatarFallback></AvatarFallback>
                             </Avatar>
                         </div>

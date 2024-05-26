@@ -1,4 +1,4 @@
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import {
     Pagination,
@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/pagination";
 import { formatRelativeDate } from "@/lib/utils";
 import Link from "next/link";
+import { minidenticon } from "minidenticons";
 import { getPostsForCat } from "../../forum.actions";
 
 export default async function CategoryPage({
@@ -119,6 +120,11 @@ export default async function CategoryPage({
                     >
                         <div>
                             <Avatar>
+                                <AvatarImage
+                                    src={`data:image/svg+xml;utf8,${encodeURIComponent(
+                                        minidenticon(post.author.name || "")
+                                    )}`}
+                                />
                                 <AvatarFallback></AvatarFallback>
                             </Avatar>
                         </div>
