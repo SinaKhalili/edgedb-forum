@@ -70,7 +70,7 @@ export const NewPostForm = ({
     return (
         <Form {...form}>
             <div className="p-4 border-solid border rounded-md">
-                <ForwardRefEditor markdown="hello world" />
+                {/* <ForwardRefEditor markdown="hello world" /> */}
                 <form
                     onSubmit={form.handleSubmit(onSubmit)}
                     className="flex flex-col gap-4"

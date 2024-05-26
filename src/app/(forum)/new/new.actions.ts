@@ -32,7 +32,10 @@ export const createPost = async (data: {
         redirect("/auth/login");
     }
 
-    const slug = data.title.toLowerCase().replace(/\s/g, "-");
+    const slug = data.title
+        .toLowerCase()
+        .replace(/\s/g, "-")
+        .replace(/[^a-z0-9-]/g, "");
 
     const post = await session.client.queryRequiredSingle<Post>(
         CREATE_POST_QUERY,
