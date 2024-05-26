@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 import type { Metadata } from "next";
 import { Toaster } from "@/components/ui/sonner";
 import { cn } from "@/lib/utils";
+import { Analytics } from "@vercel/analytics/react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,6 +23,7 @@ export default async function RootLayout({
             <body className={cn(inter.className, "min-h-full flex flex-col")}>
                 {children}
                 <Toaster position="bottom-center" />
+                <Analytics />
             </body>
         </html>
     );
